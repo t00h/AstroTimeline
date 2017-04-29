@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="copyright" content="Thomas Hardern">
+    <meta name="author" content="Thomas Hardern"> <!-- See more of my stuff: https://www.behance.net/thomasaeh126fb -->
+    <meta name="description" content="A short scientific timeline of how life on Earth emerged.">
+    <meta name="keywords" content="Earth, Life, Astrobiology, Big Bang, Hubble's Law, University of St Andrews, Thomas Hardern">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="follow">
+    <title>Astrobiology Timeline</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="js.js"></script>
+</head>
+
+<body onload="showInfo()">
+
+<!-- THE FOLLOWING EMBED CODE, UP UNTIL LINE 59, WAS ADJUSTED FROM https://developers.google.com/youtube/iframe_api_reference#Getting_Started -->
+
+<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+<div id="player"></div>
+
+<script type="text/javascript">
+    // 2. This code loads the IFrame Player API code asynchronously.
+    var tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // 3. This function creates an <iframe> (and YouTube player)
+    //    after the API code downloads.
+    // styles from CSS nost changed
+    var player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            videoId: '8OiWoUNZ8kM',
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+            }
+        });
+    }
+
+    // 4. The API will call this function when the video player is ready, then muting, setting quality to high res (>1080P, i.e. 4k) and then slowing playback by 75%
+    function onPlayerReady(event) {
+        String reccQuality = player.getPlaybackQuality();
+        if (reccQuality.equals("highres") || reccQuality.equals("hd1080") || reccQuality.equals("hd720")) { // good enough connection
+        event.target.playVideo();
+        player.mute();
+        player.setPlaybackQuality(reccQuality);         
+        }
+        else { // dont show video - connection too bad
+            break;
+        }
+    }
+
+    // 5. The API calls this function when the player's state changes.
+    //    The function indicates that when playing a video (state=1),
+    //    the player should play for 47 mins (length of unslowed video) then restart
+    var done = false;
+    function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+            setTimeout(restartVideo(), 2820000);
+            done = true;
+        }
+    }
+    function restartVideo() {
+        player.seekTo(0, true);
+    }
+</script>
+
+
+    <div id="bgWrapper"></div>
+
+    <div id="contentWrapper">
+    
+        <div class="slide" id="info">
+        
+        <h1>A timeline of Life on Earth</h1>
+            
+            <p>
+            This is my electronic timeline project for my Astrobiology (ID1006) module at the University of St Andrews.<br/><br/>
+            All design and construction (programming) is my own work.<br/>
+            Background video courtesy of <a href="https://www.youtube.com/watch?v=8OiWoUNZ8kM">daveachuk</a>. Fallback background image courtesy of <a href="https://en.wikipedia.org/wiki/File:Veil_Nebula_-_NGC6960.jpg">Ken Crawford</a>.<br/><br/>
+            <a href="javascript:showReferences();">Click here to see my reference list.</a><br/><br/>
+
+            This timeline is chronological. To navigate it, press your left and right keys on a computer or laptop, or click the left and right arrows.<br/>
+            To add a background between the text in each slide and the video, click the plus in the bottom right. Click the minus to remove it.<br/>
+            You can see your temporal progress on the bar at the top of the page (which will appear as you navigate through the time periods).<br/><br/>
+            I hope you enjoy my timeline.<br/><br/>
+            
+            <a href="https://www.behance.net/thomasaeh126fb">Thomas Hardern</a>; copyright © 2017
+            
+            </p>
+        
+        </div>
+
+
+        <div class="slide" id="references">
+        
+        <h1>References</h1>
+
+            <ul>
+
+            <li class="slideInList">Slide 1: A BRIEF OVERVIEW</li>
+            <li><span class="italics">Geologic time scale</span>, Wikipedia. Retrieved 26<sup>th</sup> March 2017 from <a href="https://en.wikipedia.org/wiki/Geologic_time_scale#Terminology">https://en.wikipedia.org/wiki/Geologic_time_scale#Terminology</a>. Purpose: gaining understanding of the units of time.</li>
+            <li>Nave, C. <span class="italics">Geological time scale & Geologic Time and the Geologic Column</span>. Retrieved 26<sup>th</sup> March 2017 from <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/Geophys/geotime.html">http://hyperphysics.phy-astr.gsu.edu/hbase/Geophys/geotime.html</a>. Purpose: finding the divisions of geological time which I can use when discussing lengths of time passing.</li>
+            <li>Rafferty, J.P. <span class="italics">Hadean Eon</span>, Encyclopædia Britannica. Retrieved 27<sup>th</sup> March 2017 from <a href="https://www.britannica.com/science/Hadean-Eon">https://www.britannica.com/science/Hadean-Eon</a>. Purpose: gaining information on and citations for the Hadean eon.</li>
+            <li>Windley, B.F. <span class="italics">Archean Eon</span>, Encyclopædia Britannica. Retrieved 27<sup>th</sup> March 2017 from <a href="https://www.britannica.com/science/Archean-Eon">https://www.britannica.com/science/Archean-Eon</a>. Purpose: gaining information on and citations for the Archean eon.</li>
+            <li>Windley, B.F. <span class="italics">Proterozoic Eon</span>, Encyclopædia Britannica. Retrieved 27<sup>th</sup> March 2017 from <a href="https://www.britannica.com/science/Proterozoic-Eon">https://www.britannica.com/science/Proterozoic-Eon</a>. Purpose: gaining information on and citations for the Proterozoic eon.</li>
+            <li>Planavsky, N.J, et. al. <span class="italics">Evidence for oxygenic photosynthesis half a billion years before the Great Oxidation Event</span>, Nature Geoscience 7, 283–286 (2014). Retrieved 28<sup>th</sup> March 2017 from <a href="http://www.nature.com/ngeo/journal/v7/n4/full/ngeo2122.html">http://www.nature.com/ngeo/journal/v7/n4/full/ngeo2122.html</a>. Purpose: gaining a reference of the time during which the Great Oxidation Event occured.</li>
+            <li>Goldblatt, C; Lenton, T.M; Watson, A.J. <span class="italics">Bistability of atmospheric oxygen and the Great Oxidation</span>, Nature 443, 683-686 (12 October 2006). Retrieved 28<sup>th</sup> March 2017 from <a href="http://www.nature.com/nature/journal/v443/n7112/full/nature05169.html">http://www.nature.com/nature/journal/v443/n7112/full/nature05169.html</a>. Purpose: gaining second reference for time of Great Oxidation Event and figure for the increase in O<sub>2</sub> concentration.</li>
+            <li>Buick, R. <span class="italics">When did oxygenic photosynthesis evolve?</span>. Retrieved 28<sup>th</sup> March 2017 from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2606769">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2606769</a>. Purpose: gaining a refernece for the timing of the development of aerobic photosynthesis.</li>
+            <li>Blankenship, R.E. <span class="italics">Early Evolution of Photosynthesis</span>. Retrieved 28<sup>th</sup> March 2017 from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2949000">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2949000</a>. Purpose: gaining a reference for information given on aerobic photosynthesis.</li>
+            <li>Schmitz, B, et. al. <span class="italics">Asteroid breakup linked to the Great Ordovician Biodiversification Event</span>. Retrieved 28<sup>th</sup> March 2017 from <a href="http://www.nature.com/ngeo/journal/v1/n1/full/ngeo.2007.37.html">http://www.nature.com/ngeo/journal/v1/n1/full/ngeo.2007.37.html</a>. Purpose: gaining a reference for a summary of the GOBE and its approximate time.</li>
+            <li>Webby, B.D; Paris, F; Droser, M.L; Percival, I.G. <span class="italics">The Great Ordovician Biodiversification Event</span>. Columbia University Press. Retrieved 28<sup>th</sup> March 2017 from <a href="https://cup.columbia.edu/book/the-great-ordovician-biodiversification-event/9780231126786">https://cup.columbia.edu/book/the-great-ordovician-biodiversification-event/9780231126786</a>. Purpose: also gaining a reference for a summary of the GOBE and its approximate time.</li>
+
+            <li class="slideInList">Slide 2: THE CREATION OF THE UNIVERSE</li>
+            <li><span class="italics">Year</span>, Wikipedia. Retrieved 25<sup>th</sup> March 2017 from <a href="https://en.wikipedia.org/wiki/Year#SI_prefix_multipliers">https://en.wikipedia.org/wiki/Year#SI_prefix_multipliers</a>. Purpose: gaining understanding of SI year units to be used.</li>
+            <li>The Editors of Encyclopædia Britannica. (2007, November 14)<span class="italics">Hubble’s constant</span>, Encyclopædia Britannica. Retrieved 25<sup>th</sup> March 2017 from <a href="https://www.britannica.com/topic/Hubbles-constant">https://www.britannica.com/topic/Hubbles-constant</a>. Purpose: gaining a refernece of the overall summary of Hubble's constant.</li>
+            <li>NASA, ESA, Riess, A (STScI/JHU). (2009, July 05). <span class="italics">Refined Hubble Constant Narrows Possible Explanations for Dark Energy</span>. Retrieved 25<sup>th</sup> March 2017 from <a href="https://www.nasa.gov/mission_pages/hubble/science/hstimg_ngc3021.html">https://www.nasa.gov/mission_pages/hubble/science/hstimg_ngc3021.html</a>. Purpose: gaining referneces of accurate figures for H<sub>0</sub>.</sub></li>
+            <li>Huchra, J.P. <span class="italics">THE HUBBLE CONSTANT</span>. Retrieved 25<sup>th</sup> March 2017 from <a href="https://www.cfa.harvard.edu/~dfabricant/huchra/hubble">https://www.cfa.harvard.edu/~dfabricant/huchra/hubble</a>. Purpose: further (including past) figures for H<sub>0</sub> as well as reinforcing previous information referenced.</li>
+            <li>RAS Education Committee, Prof. Rowan-Robinson, M, Johnson, P. <span class="italics">Cosmology: THE HUBBLE CONSTANT</span>, Royal Astronomical Society. Retrieved 25<sup>th</sup> March 2017 from <a href="https://www.ras.org.uk/publications/other-publications/2038-cosmology-hubble-constant">https://www.ras.org.uk/publications/other-publications/2038-cosmology-hubble-constant</a>. Purpose: gaining information on the value of H<sub>0</sub>, including how it has changed over time.</li>
+            <li>The Editors of Encyclopædia Britannica. (2015, December 02). <span class="italics">Big-bang model</span>, Encyclopædia Britannica, inc. Retrieved 25<sup>th</sup> March 2017 from <a href="https://www.britannica.com/topic/big-bang-model">https://www.britannica.com/topic/big-bang-model</a>. Purpose: gaining a reference for general knowlege and some more advanced concepts of the Big Bang.</li>
+            <li>Scientific American. (2003, October 13). <span class="italics">What is the cosmic microwave background radiation?</span>. Retrieved 25<sup>th</sup> March 2017 from <a href="https://www.scientificamerican.com/article/what-is-the-cosmic-microw">https://www.scientificamerican.com/article/what-is-the-cosmic-microw</a>. Purpose: to get a reference for the definition of CMB.</li>
+            <li>Dr. Wollack, E.J, NASA. (2016, September 05). <span class="italics">Tests of Big Bang: The CMB</span>,  Retrieved 25<sup>th</sup> March 2017 from <a href="https://map.gsfc.nasa.gov/universe/bb_tests_cmb.html">https://map.gsfc.nasa.gov/universe/bb_tests_cmb.html</a>. Purpose: to get another reference for what CMB is, and to also be able to develop its link to the Big Bang Theory.</li>
+            <li>Prof. White, M. <span class="italics">The Hubble Expansion</span>. Retrieved 25<sup>th</sup> March 2017 from <a href="http://w.astro.berkeley.edu/~mwhite/darkmatter/hubble.html">http://w.astro.berkeley.edu/~mwhite/darkmatter/hubble.html</a>. Purpose: to give a reference and explanation for what the Hubble Expansion hypothesis was.</li>
+            <li>Dr. Wollack, E.J, NASA. (2016, March 25). <span class="italics">Tests of Big Bang: Expansion</span>. Retrieved 25<sup>th</sup> March 2017 from <a href="https://map.gsfc.nasa.gov/universe/bb_tests_exp.html">https://map.gsfc.nasa.gov/universe/bb_tests_exp.html</a>. Purpose: to develop more the idea of accelerating expansion in the Big Bang.</li>
+            <li>Dr. Wollack, E.J, NASA. (2012, December 21). <span class="italics">What is a Cosmological Constant?</span>. Retrieved 25<sup>th</sup> March 2017 from <a href="https://map.gsfc.nasa.gov/universe/uni_accel.html">https://map.gsfc.nasa.gov/universe/uni_accel.html</a>. Purpose: to provide information in order to explain the nature, purpose, and history of the cosmological constant.</li>
+            <li>Prof. Wright, E.L. (2012, May). <span class="italics">Vacuum Energy Density, or How Can Nothing Weigh Something?</span>. Retrieved 25<sup>th</sup> March 2017 from <a href="http://www.astro.ucla.edu/~wright/cosmo_constant.html">http://www.astro.ucla.edu/~wright/cosmo_constant.html</a>. Purpose: to provide information in order to explain the nature, purpose, and history of the cosmological constant.</li>
+            <li>The Board of Trustees of the University of Illinois. (1995, January 11). <span class="italics">Expanding Universe</span>. Retrieved 25<sup>th</sup> March 2017 from <a href="http://archive.ncsa.illinois.edu/Cyberia/Cosmos/ExpandUni.html">http://archive.ncsa.illinois.edu/Cyberia/Cosmos/ExpandUni.html</a>. Purpose: to provide information in order to explain the nature, purpose, and history of the cosmological constant as well as Hubble's law.</li>
+
+            <li class="slideInList">Slide 3: EARTH IS BORN</li>
+            <li>Prof. Schombert, J. (). <span class="italics">Age of the Earth Lecture</span>. Retrieved 26<sup>th</sup> March 2017 from <a href="http://abyss.uoregon.edu/~js/lectures/age_of_the_earth/age_of_the_earth.html">http://abyss.uoregon.edu/~js/lectures/age_of_the_earth/age_of_the_earth.html</a>. Purpose: to provide information on the investigation(s) into the age of the Earth.</li>
+            <li><span class="italics">Age of the Earth</span>, Stanford University Press. Retrieved 26<sup>th</sup> March 2017 from <a href="https://pubs.usgs.gov/gip/geotime/age.html">https://pubs.usgs.gov/gip/geotime/age.html</a>. Purpose: to further develop ideas on evidence for the age of the Earth, and the methods used to determine its age.</li>
+            <li>Bouvier, A, Wadhwa, M. (2010, August 22). <span class="italics">The age of the Solar System redefined by the oldest Pb–Pb age of a meteoritic inclusion</span>. Nature Geoscience 3, 637-641 (2010). Retrieved 26<sup>th</sup> March 2017 from <a href="http://www.nature.com/ngeo/journal/v3/n9/full/ngeo941.html">http://www.nature.com/ngeo/journal/v3/n9/full/ngeo941.html</a>. Purpose: to allow the inclusion of an additional method in determining the age of the Earth in the timeline.</li>
+            <li>Author unknown - possibly Ann Zabludoff at The University of Arizona. <span class="italics">The Nebular Theory of the origin of the Solar System</span>. Retrieved 26<sup>th</sup> March 2017 from <a href="http://atropos.as.arizona.edu/aiz/teaching/nats102/mario/solar_system.html">http://atropos.as.arizona.edu/aiz/teaching/nats102/mario/solar_system.html</a>. Purpose: to gain information on the Nebular model of the formation of the Solar System.</li>
+            <li>Dr Bombelli, L. (2012, September 29). <span class="italics">Formation of the Solar System</span>. Retrieved 26<sup>th</sup> March 2017 from <a href="http://www.phy.olemiss.edu/~luca/astr/Topics-Solar/Formation-N.html">http://www.phy.olemiss.edu/~luca/astr/Topics-Solar/Formation-N.html</a>. Purpose: to gain more information on how the Solar System and planets formed.</li>
+            <li>Prof. Bagenal, F. <span class="italics">Solar System Formation</span>. Retrieved 26<sup>th</sup> March 2017 from <a href="http://lasp.colorado.edu/~bagenal/1010/SESSIONS/11.Formation.html">http://lasp.colorado.edu/~bagenal/1010/SESSIONS/11.Formation.html</a>. Purpose: to gain further understanding still in how the Solar System formed, including considering alternative theories.</li>
+
+            <li class="slideInList">Slide 4: FIRST LIFE ON EARTH</li>
+            <li>Mojzsis, S J, Arrhenius, G, McKeegan, K D, Harrison, T M, Nutman, A P, et al. (1996, November 07). <span class="italics">Evidence for life on Earth before 3,800 million years ago</span>, Nature; London384.6604 (Nov 7, 1996): 55-9. Retrieved 29<sup>th</sup> March 2017 from <a href="http://search.proquest.com/openview/aa79d58e7998e7a8c2c02bcf6781a9eb">http://search.proquest.com/openview/aa79d58e7998e7a8c2c02bcf6781a9eb</a>. Purpose: </li>
+            <li>Jeffares, D, Poole, A. (2000). <span class="italics">Were Bacteria the First Forms of Life on Earth?</span>. American Institute of Biological Sciences. Retrieved 29<sup>th</sup> March 2017 from <a href="http://www.actionbioscience.org/evolution/jeffares_poole.html">http://www.actionbioscience.org/evolution/jeffares_poole.html</a>.</li>
+            <li>de Duve, C. (1995) <span class="italics">The Beginnings of Life on Earth</span>. American Scientist. Retrieved 29<sup>th</sup> March 2017 from <a href="https://www.americanscientist.org/issues/pub/the-beginnings-of-life-on-earth">https://www.americanscientist.org/issues/pub/the-beginnings-of-life-on-earth</a>.</li>
+            <li>Hanslmeier, A. <span class="italics">Astrobiology: The Search for Life in the Universe, pp35</span>. Retrieved 29<sup>th</sup> March 2017 from <a href="https://books.google.co.uk/books?id=jmriAwAAQBAJ&pg=PA46">https://books.google.co.uk/books?id=jmriAwAAQBAJ&pg=PA46</a>.</li>
+            <li>Xie, X, et. al. (2015). <span class="italics">Primordial soup was edible: abiotically produced Miller-Urey mixture supports bacterial growth</span>. Scientific Reports 5, Article number: 14338 (2015). Retrieved 29<sup>th</sup> March 2017 from <a href="http://www.nature.com/articles/srep14338">http://www.nature.com/articles/srep14338</a>.</li>
+            <li>Bracher, P.J. (2015, March 24). <span class="italics">Origin of life: Primordial soup that cooks itself</span>, Nature Chemistry 7, 273–274 (2015). Retrieved 29<sup>th</sup> March 2017 from <a href="http://www.nature.com/nchem/journal/v7/n4/full/nchem.2219.html">http://www.nature.com/nchem/journal/v7/n4/full/nchem.2219.html</a>.</li>
+
+            <li class="slideInList">Slide 5: AEROBIC PHOTOSYNTHESIS LEADS TO THE GOE</li>
+            <li>Planavsky, N.J, et. al. (2013, March 23). <span class="italics">Evidence for oxygenic photosynthesis half a billion years before the Great Oxidation Event</span>, Nature Geoscience 7, 283–286 (2014). Retrieved 28<sup>th</sup> March 2017 from <a href="http://www.nature.com/ngeo/journal/v7/n4/full/ngeo2122.html">http://www.nature.com/ngeo/journal/v7/n4/full/ngeo2122.html</a>. Purpose: to gain insight into the relationship between the development of oxygenic photosynthesis and the GOE.</li>
+            <li>Goldblatt, C, Lenton, T.M, Watson, A.J. (2006, October 12). <span class="italics">Bistability of atmospheric oxygen and the Great Oxidation</span>. Nature 443, 683-686 (12 October 2006). Retrieved 28<sup>th</sup> March 2017 from <a href="http://www.nature.com/nature/journal/v443/n7112/full/nature05169.html">http://www.nature.com/nature/journal/v443/n7112/full/nature05169.html</a>. Purpose: to find the approximate time and magnitude of the effects of the GOE.</li>
+            <li>Buick, R. (2008, August 27). <span class="italics">When did oxygenic photosynthesis evolve?</span>. Philos Trans R Soc Lond B Biol Sci. 2008 Aug 27; 363(1504): 2731–2743. Retrieved 28<sup>th</sup> March 2017 from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2606769">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2606769</a>. Purpose: to attempt to find when approximately oxygenic photosynthesis was first developed.</li>
+            <li>Blankenship, R.E. (2010, October). <span class="italics">Early Evolution of Photosynthesis</span>. Plant Physiol. 2010 Oct; 154(2): 434–438. Retrieved 28<sup>th</sup> March 2017 from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2949000">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2949000</a>. Purpose: to further my understanding of how oxygenic photosynthesis was developed.</li>
+            <li>Penn State. (1999, October 29). <span class="italics">Oxygen May Be Cause Of First Snowball Earth.</span> ScienceDaily. Retrieved March 29, 2017 from <a href="http://www.sciencedaily.com/releases/1999/10/991029071656.htm">http://www.sciencedaily.com/releases/1999/10/991029071656.htm</a>. Purpose: to try to find any link between the GOE and the snowball event around the same time.</li>
+            <li>Marshall, M. (2010, May 24). <span class="italics">The history of ice on Earth.</span> New Scientist. Retrieved March 29, 2017 from <a href="https://www.newscientist.com/article/dn18949-the-history-of-ice-on-earth">https://www.newscientist.com/article/dn18949-the-history-of-ice-on-earth</a>. Purpose: to try to find any link between the GOE and the snowball event around the same time, and try to gain a greater understanding of glaciations in general.</li>
+            <li>Tang, H; Chen, Y. (2013). <span class="italics">Global glaciations and atmospheric change at ca. 2.3 Ga</span>. Geoscience Frontiers 2013 vol: 4 (5) pp: 583-596. Retrieved March 29, 2017 from <a href="https://www.sciencedirect.com/science/article/pii/S1674987113000297">https://www.sciencedirect.com/science/article/pii/S1674987113000297</a>. Purpose: to try to try to gain greater insight into the first snowball Earth and any possible causes.</li>
+
+            <li class="slideInList">Slide 6: EUKARYOTES DEVELOP</li>
+            <li>Scientific American. <span class="italics">When did eukaryotic cells (cells with nuclei and other internal organelles) first evolve? What do we know about how they evolved from earlier life-forms?</span> Retrieved March 29, 2017 from <a href="https://www.scientificamerican.com/article/when-did-eukaryotic-cells">https://www.scientificamerican.com/article/when-did-eukaryotic-cells</a>. Purpose: to gain initial background knowlege into the evolution of eukaryotic cells.</li>
+            <li>University of California Museum of Paleontology. <span class="italics">From prokaryotes to eukaryotes</span>, Understanding Evolution. Retrieved March 29, 2017 from <a href="http://evolution.berkeley.edu/evolibrary/article/_0/endosymbiosis_03">http://evolution.berkeley.edu/evolibrary/article/_0/endosymbiosis_03</a>. Purpose: to further develop knowlege into the evolution of eukaryotic cells.</li>
+            <li>Waggoner, B, Ph.D; Speer, B.R; University of California Museum of Paleontology. <span class="italics">Eukaryota: Fossil Record</span>. Retrieved March 29, 2017 from <a href="http://www.ucmp.berkeley.edu/alllife/eukaryotafr.html">http://www.ucmp.berkeley.edu/alllife/eukaryotafr.html</a>. Purpose: to investigate the fossil record of eukaryotes in an attempt to find the oldest recorded specimen.</li>
+            <li>Wang, D. Y., Kumar, S., & Hedges, S. B. (1999). <span class="italics">Divergence time estimates for the early history of animal phyla and the origin of plants, animals and fungi</span>. Proceedings of the Royal Society B: Biological Sciences, 266(1415), 163–171. Retrieved March 29, 2017 from <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1689654/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1689654/</a>. Purpose: to find when plants, animals, and fungi initially genetically diverged.</li>
+
+            <li class="slideInList">Slide 7: FIRST MULTICELLULAR (ANIMAL) LIFE</li>
+            <li>Kaiser, D (December 2001). <span class="italics">Building a Multicellular Organism</span>, Annual Review of Genetics. Retrieved March 29, 2017 from <a href="http://www.annualreviews.org/doi/10.1146/annurev.genet.35.102401.090145">http://www.annualreviews.org/doi/10.1146/annurev.genet.35.102401.090145</a>. Purpose: to gain initial understanding in multicellular animals developed.</li>
+            <li>Michael E. Baker (January 2005). <span class="italics">Xenobiotics and the Evolution of Multicellular Animals: Emergence and Diversification of Ligand-Activated Transcription Factors</span>. Integrative and Comparative Biology 2005; 45 (1): 172 doi: 10.1093/icb/45.1.172. Retrieved March 29, 2017 from <a href="https://academic.oup.com/icb/article/45/1/172/604643/Xenobiotics-and-the-Evolution-of-Multicellular">https://academic.oup.com/icb/article/45/1/172/604643/Xenobiotics-and-the-Evolution-of-Multicellular</a>. To further my understanding of multicellular organisms emerged, and gain a final estimate of when this occured.</li>
+
+            <li class="slideInList">Slide 8: SECOND SNOWBALL EARTH</li>
+            <li>Rooney, A.D; Strauss1, J.V; Brandon, A.D; Macdonald, F.A. (March 2015). <span class="italics">A Cryogenian chronology: Two long-lasting synchronous Neoproterozoic glaciations</span>. Geology 2015; v.43 no.5 p.459-462. Retrieved March 29, 2017 from <a href="http://geology.gsapubs.org/content/43/5/459">http://geology.gsapubs.org/content/43/5/459</a>. Purpose: to provide the information required on the second snowball Earth.</li>
+
+            <li class="slideInList">Slide 9: THE FIRST CHORDATES AND VERTEBRATES</li>
+            <li>Ghiselin, M.T. (2012, March 30). <span class="italics">Chordate</span>. Encyclopædia Britannica. Retrieved March 29, 2017 from <a href="https://www.britannica.com/animal/chordate">https://www.britannica.com/animal/chordate</a>. Purpose: to be able to correctly define chordates.</li>
+            <li>Mallatt, J. (2009). <span class="italics">Evolution and Phylogeny of Chordates</span>. Encyclopedia of Neuroscience, Springer Berlin Heidelberg. Retrieved March 29, 2017 from <a href="https://link.springer.com/referenceworkentry/10.1007%2F978-3-540-29678-2_3116">https://link.springer.com/referenceworkentry/10.1007%2F978-3-540-29678-2_3116</a>. Purpose: to increase my knowlege of the nature of chordates.</li>
+            <li>Chen, J-Y; Dzik, J; Edgecombe, G D; Ramskold, L; Zhou, G-Q. (Oct 26, 1995). <span class="italics">A possible Early Cambrian chordate</span>. Nature; London. Retrieved March 29, 2017 from <a href="http://search.proquest.com/openview/5df27d30c28745afc61662eda39e0a49">http://search.proquest.com/openview/5df27d30c28745afc61662eda39e0a49</a>. Purpose: to gain an understanding and chronological parts of the fossil record of chordates.</li>
+            <li>D-G. Shu, H-L. Luo, S. Conway Morris, X-L. Zhang, S-X. Hu, L. Chen, J. Han, M. Zhu, Y. Li & L-Z. Chen. (20 August 1999). <span class="italics">Lower Cambrian vertebrates from south China</span>. Nature 402, 42-46 (4 November 1999). Retrieved March 29, 2017 from <a href="http://www.nature.com/nature/journal/v402/n6757/full/402042a0.html">http://www.nature.com/nature/journal/v402/n6757/full/402042a0.html</a>. Purpose: to develop an understanding of the fossil record for vertebrates.</li>
+
+            <li class="slideInList">Slide 10: THE CAMBRIAN EXPLOSION AND GOBE</li>
+            <li>Flannery, T.F. (2013, May 17). <span class="italics">Cambrian explosion</span>. Encyclopædia Britannica. Retrieved March 29, 2017 from <a href="https://www.britannica.com/topic/Cambrian-explosion">https://www.britannica.com/topic/Cambrian-explosion</a>. Purpose: to allow the definition and temporal labelling of the Cambrian explosion.</li>
+            <li>Robison, R.A, Johnson, M.E, Crick, R.E. (2015, November 10th). <span class="italics">Cambrian Period</span>. Encyclopædia Britannica. Retrieved March 29, 2017 from <a href="https://www.britannica.com/science/Cambrian-Period">https://www.britannica.com/science/Cambrian-Period</a>. Purpose: to allow the definition and temporal labelling of the Cambrian period.</li>
+            <li>Gallessich, G. (2010, November 9). <span class="italics">New Timeline for Appearances of Skeletal Animals in Fossil Record Developed by UCSB Researchers</span>. Retrieved March 29, 2017 from <a href="http://www.news.ucsb.edu/2010/012934/new-timeline-appearances-skeletal-animals-fossil-record-developed-ucsb-researchers">http://www.news.ucsb.edu/2010/012934/new-timeline-appearances-skeletal-animals-fossil-record-developed-ucsb-researchers</a>. Purpose: to further my understanding of the Cambrian Explosion and gain figures to label its temporal range.</li>
+            <li>Maloof, A.C, Porter, S.M, Moore, J.L, Dudás, F.O, Bowring, S.A, Higgins, J.A, Fike, D.A, Eddy, M.P. (Oct 26, 1995). <span class="italics">The earliest Cambrian record of animals and ocean geochemical change</span>. Bulletin v.122 no.11-12 p.1731-1774. Retrieved March 29, 2017 from <a href="http://gsabulletin.gsapubs.org/content/122/11-12/1731">http://gsabulletin.gsapubs.org/content/122/11-12/1731</a>. Purpose: to be able to gain figures labellling when the Cambrian explosion occurred.</li>
+            <li>Webby, B.D; Paris, F; Droser, M.L; Percival, I.G (2004). <span class="italics">The Great Ordovician Biodiversification Event</span>, Columbia University Press. Retrieved 28<sup>th</sup> March 2017 from <a href="https://cup.columbia.edu/book/the-great-ordovician-biodiversification-event/9780231126786">https://cup.columbia.edu/book/the-great-ordovician-biodiversification-event/9780231126786</a>. Purpose: to gain a general understanding of the GOE and when it occurred.</li>
+            <li>Servais, T; Harper, D; Li, J; Owen, A; Sheehan, P (2009). <span class="italics">Understanding the Great Ordovician Biodiversification Event (GOBE): Influences of paleogeography, paleoclimate, or paleoecology?</span> GSA Today, v.19, no.4/5, doi:10.1130/GSATG37A.1. Retrieved 29<sup>th</sup> March 2017 from <a href="http://www.geosociety.org/gsatoday/archive/19/4/pdf/i1052-5173-19-4-4.pdf">http://www.geosociety.org/gsatoday/archive/19/4/pdf/i1052-5173-19-4-4.pdf</a>. Purpose: Purpose: to gain a general understanding of the GOE, and why and when it occurred.</li>
+
+            <li class="slideInList">Slide 11: 1ST PLANTS AND ANIMALS ON LAND</li>
+            <li>Holtz, T.R., Ph.D., <span class="italics">The Colonization of Land and Life on Land Before the Dinosaurs</span>, University of Maryland Department of Geology. Retrieved 29<sup>th</sup> March 2017 from <a href="https://www.geol.umd.edu/~tholtz/G104/lectures/104land.html">https://www.geol.umd.edu/~tholtz/G104/lectures/104land.html</a>. Purpose: to gain general information on how organisms colonised land from the sea.</li>
+            <li>Campbell, A, Ph.D., Cooke, P, Ph.D., Cass, K, Ph.D., Earl, K. <span class="italics">The History of Animal Evolution</span>, Evolution for Teaching. University of Waikato Faculty of Science & Engineering. Retrieved 29<sup>th</sup> March 2017 from <a href="http://sci.waikato.ac.nz/evolution/AnimalEvolution.shtml">http://sci.waikato.ac.nz/evolution/AnimalEvolution.shtml</a>. Purpose: to gain an understanding of and timescale for animal evolution to colonise land.</li>
+            <li>Webby, B.D; Paris, F; Droser, M.L; Percival, I.G (2004). <span class="italics">The Great Ordovician Biodiversification Event</span>, Columbia University Press. Retrieved 29<sup>th</sup> March 2017 from <a href="https://cup.columbia.edu/book/the-great-ordovician-biodiversification-event/9780231126786">https://cup.columbia.edu/book/the-great-ordovician-biodiversification-event/9780231126786</a>. Purpose: to gain a general understanding of the GOE, and why and when it occurred.</li>
+            <li>Rubinstein, C. V., Gerrienne, P., de la Puente, G. S., Astini, R. A. and Steemans, P. (2010). <span class="italics">Early Middle Ordovician evidence for land plants in Argentina (eastern Gondwana)</span>. New Phytologist, 188: 365–369. Retrieved 29<sup>th</sup> March 2017 from <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1469-8137.2010.03433.x/abstract">http://onlinelibrary.wiley.com/doi/10.1111/j.1469-8137.2010.03433.x/abstract</a>. Purpose: to find the oldest example of a land plant in the fossil record to estimate when they first emerged.</li>
+            <li>MacNaughton, R.B, Cole, J.M, Dalrymple, R.W, Braddy, S.J, Briggs, D.E.G, and Lukie, T.D. (2010). <span class="italics">First steps on land: Arthropod trackways in Cambrian-Ordovician eolian sandstone, southeastern Ontario, Canada</span>. Geology, v.30 no.5 p.391-394. Retrieved 29<sup>th</sup> March 2017 from <a href="http://geology.gsapubs.org/content/30/5/391">http://geology.gsapubs.org/content/30/5/391</a>. Purpose: to gain an understanding as to how arthropods adapted to terrestrial life, and the timescale of the process.</li>
+            <li>Zug, G.R.(2010). <span class="italics">Tetrapod</span> Encyclopædia Britannica. Retrieved 29<sup>th</sup> March 2017 from <a href="https://www.britannica.com/animal/tetrapod-animal">https://www.britannica.com/animal/tetrapod-animal</a>. Purpose: to be able to effectively define what a tetrapod is.</li>
+            <li>George D, Blieck A (2011). <span class="italics">Rise of the Earliest Tetrapods: An Early Devonian Origin from Marine Environment</span>. PLoS ONE 6(7): e22136. Retrieved 29<sup>th</sup> March 2017 from <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0022136">http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0022136</a>. Purpose: to try to gain a timeline of when tetrapods first emerged, in the aim of knowing when they colonised land.</li>
+
+            <li class="slideInList">Slide 12: PERMIAN–TRIASSIC EXTINCTION</li>
+            <li>The Editors of Encyclopædia Britannica (2017, March 22). <span class="italics">Permian extinction</span>, Encyclopædia Britannica. Retrieved 29<sup>th</sup> March 2017 from <a href="https://www.britannica.com/science/Permian-extinction">https://www.britannica.com/science/Permian-extinction</a>. Purpose: to gain all the information necessary to describe the The P/T extinction.</li>
+            <li>Gittleman, J.L. (2017, February 15). <span class="italics">Extinction</span>, Encyclopædia Britannica. Retrieved 29<sup>th</sup> March 2017 from <a href="https://www.britannica.com/science/extinction-biology">https://www.britannica.com/science/extinction-biology</a>. Purpose: to be able to define what an extinction event is.</li>
+
+            <li class="slideInList">Slide 13: TRIASSIC-JURASSIC EXTINCTION</li>
+            <li>The Editors of Encyclopædia Britannica (2014, March 4). <span class="italics">End-Triassic extinction</span>, Encyclopædia Britannica. Retrieved 29<sup>th</sup> March 2017 from <a href="https://www.britannica.com/science/end-Triassic-extinction">https://www.britannica.com/science/end-Triassic-extinction</a>. Purpose: to gain most of the information necessary to describe the The T/J extinction.</li>
+            <li>Hesselbo, S.P, Robinson, S.A, Surlyk, F, Piasecki, S. (2002). <span class="italics">Terrestrial and marine extinction at the Triassic-Jurassic boundary synchronized with major carbon-cycle perturbation: A link to initiation of massive volcanism?</span>, Geology v.30 no.3 p.251-254. Retrieved 29<sup>th</sup> March 2017 from <a href="http://geology.gsapubs.org/content/30/3/251.short">http://geology.gsapubs.org/content/30/3/251.short</a>. Purpose: to gain more insight into the possible causes of the T/J extinction event.</li>
+
+            <li class="slideInList">Slide 14: MONTROMEMES, BIRDS, AND PLACENTAL MAMMALS</li>
+            <li>Teun van Rheede, Trijntje Bastiaans, David N. Boone, S. Blair Hedges, Wilfried W. de Jong, Ole Madsen. (2005, November 16). <span class="italics">The Platypus Is in Its Place: Nuclear Genes and Indels Confirm the Sister Group Relation of Monotremes and Therians</span>. Mol Biol Evol 2006; 23 (3): 587-597. Retrieved 29<sup>th</sup> March 2017 from <a href="https://academic.oup.com/mbe/article-lookup/doi/10.1093/molbev/msj064">https://academic.oup.com/mbe/article-lookup/doi/10.1093/molbev/msj064</a>. Purpose: ganining initial estimate figures of when Eutheria and Marsupialia diverged, along with background information.</li>
+            <li>Luo, Z-X, Yuan, C-X, Meng, Q-J, & Ji, Q. (2011, August 25). <span class="italics">A Jurassic eutherian mammal and divergence of marsupials and placentals</span>. Nature 476, 442–445 (25 August 2011). Retrieved 29<sup>th</sup> March 2017 from <a href="http://www.nature.com/nature/journal/v476/n7361/full/nature10291.html">http://www.nature.com/nature/journal/v476/n7361/full/nature10291.html</a>. Purpose: to gain up-to-date figures of when the marsupial-metatherian divergence occured.</li>
+            <li>The Editors of Encyclopædia Britannica. (2012, February 10). <span class="italics">Archaeopteryx</span>. Retrieved Retrieved 29<sup>th</sup> March 2017 from <a href="https://www.britannica.com/animal/Archaeopteryx">https://www.britannica.com/animal/Archaeopteryx</a>. Purpose: to gain enough information on this species to describe how it marked the emergence of birds.</li>
+
+
+            <li class="slideInList">Slide 15: CRETACEOUS-PALEOGENE (K/PG) EXTINCTION</li>
+            <li>The Editors of Encyclopædia Britannica (2016, May 17). <span class="italics">K–T extinction</span>, Encyclopædia Britannica. Retrieved 29<sup>th</sup> March 2017 from <a href="https://www.britannica.com/science/K-T-extinction">https://www.britannica.com/science/K-T-extinction</a>. Purpose: to gain all the information necessary to describe the The K/T extinction.</li>
+
+
+            <li class="slideInList">Slide 16: MAMMALS DEVELOP INTO PRIMATES</li>
+            <li>Jon A. Baskin, Ph.D. <span class="italics">Chapter 4 Mammal Classification</span>. Retrieved 29<sup>th</sup> March 2017 from <a href="http://users.tamuk.edu/kfjab02/Biology/Mammalogy/Mammal_classification.htm">http://users.tamuk.edu/kfjab02/Biology/Mammalogy/Mammal_classification.htm</a>. Purpose: to gain further understanding into how prehistoric taxons of animals were related.</li>
+            <li>The National Center for Biotechnology Information. <span class="italics">Euarchontoglires</span>, The NCBI taxonomy database. Retrieved 29<sup>th</sup> March 2017 from <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=314146">https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=314146</a>. Purpose: to gain understanding into the Euarchontoglires taxon of animals.</li>
+            <li>O'Leary M Bloch J Flynn J Gaudin T Giallombardo A et. al. (2013). <span class="italics">The Placental Mammal Ancestor and the Post–K-Pg Radiation of Placentals</span>, Science: 2013 vol:339 (6120). Retrieved 29<sup>th</sup> March 2017 from <a href="http://science.sciencemag.org/content/339/6120/662.long">http://science.sciencemag.org/content/339/6120/662.long</a>. Purpose: to gain some figures as to when the divergence of primates occurred.</li>
+            <li>Henke W Tattersall I Hardt T. (2007). <span class="italics">Handbook of Paleoanthropology</span>, Publisher: Springer. Retrieved 29<sup>th</sup> March 2017 from <a href="https://books.google.co.uk/books?id=vhoRdbTrjc8C&lpg=PA851&otots=iJeAOF0pqZ&dq=Altiatlasius%20koulchii&pg=PA851#v=onepage&q=Altiatlasius%20koulchii&f=false">https://books.google.co.uk/books?id=vhoRdbTrjc8C&lpg=PA851&ots=iJeAOF0pqZ&dq=Altiatlasius%20koulchii&pg=PA851#v=onepage&q=Altiatlasius%20koulchii&f=false</a>. Purpose: to be able to see the oldest primate, and therefore estimate the time at which they diverged.</li>
+
+            <li class="slideInList">Slide 17: PALAEOCENE/EOCENE EXTINCTION</li>
+            <li>Thomas, E, Shackleton, N.J. (1996). <span class="italics">The Paleocene-Eocene Benthic Foraminiferal Extinction and Stable Isotope Anomalies</span>, Division III Faculty Publications. Paper 134. Retrieved 29<sup>th</sup> March 2017 from <a href="http://wesscholar.wesleyan.edu/cgi/viewcontent.cgi?article=1133&context=div3facpubs">http://wesscholar.wesleyan.edu/cgi/viewcontent.cgi?article=1133&context=div3facpubs</a>. Purpose: to gain understanding of the P/E extinction event and why it occurred.</li>
+            <li>Gibbs, S.J, Bown, P.R, Sessa, J.A, Bralower, T.J, Wilson, P.A. (2006, December 15). <span class="italics">Nannoplankton Extinction and Origination Across the Paleocene-Eocene Thermal Maximum</span>, Science 15 Dec 2006: Vol.314, Issue 5806, pp.1770-1773. Retrieved 29<sup>th</sup> March 2017 from <a href="http://science.sciencemag.org/content/314/5806/1770">http://science.sciencemag.org/content/314/5806/1770</a>. Purpose: to gain a time reference of when the P/E extinction event occurred.</li>
+
+
+            <li class="slideInList">Slide 18: DEVELOPMENT OF HUMANS</li>
+            <li>Klein, R. (2009). <span class="italics">Darwin and the recent African origin of modern humans</span>. Proceedings of the National Academy of Sciences of the United States of America: 2009 vol:106 (38) pp:16007-9. Retrieved 29<sup>th</sup> March 2017 from <a href="hhttp://www.pnas.org/content/106/38/16007.full">http://www.pnas.org/content/106/38/16007.full</a>. Purpose: to gain information and a time estimate on and for the "out of Africa" theory</li>
+            <li>Mayell, H. (2005, February 16). <span class="italics">Oldest Human Fossils Identified</span>, National Geographic News. Retrieved 29<sup>th</sup> March 2017 from <a href="http://news.nationalgeographic.com/news/2005/02/0216_050216_omo.html">http://news.nationalgeographic.com/news/2005/02/0216_050216_omo.html</a>. Purpose: to provide information giving the oldest homo sapiens in the fossil record.</li>
+            <li>EFAP, L.Maher. (2012). <span class="italics">From foraging to farming: the 10,000-year revolution</span>. Retrieved 29<sup>th</sup> March 2017 from <a href="https://www.cam.ac.uk/research/news/from-foraging-to-farming-the-10000-year-revolution">https://www.cam.ac.uk/research/news/from-foraging-to-farming-the-10000-year-revolution</a>. Purpose: to be able to aptly describe the Neolithic Revolution in my timeline.</li>
+            <li>Wood, T, Harrison, T. (2011, February 17). <span class="italics">The evolutionary context of the first hominins</span>. Nature 470, 347–352 (17 February 2011). Retrieved 29<sup>th</sup> March 2017 from <a href="http://www.nature.com/nature/journal/v470/n7334/full/nature09709.html">http://www.nature.com/nature/journal/v470/n7334/full/nature09709.html</a>. Purpose: to be able to understand how and when the first hominins emerged.</li>
+            <li>Gibbons, A. (2002, February 15). <span class="italics">In Search of the First Hominids</span>. Science 15 Feb 2002: Vol.295, Issue 5558, pp.1214-1219. Retrieved 29<sup>th</sup> March 2017 from <a href="http://science.sciencemag.org/content/295/5558/1214.full">http://science.sciencemag.org/content/295/5558/1214.full</a>. Purpose: to be able to understand how and when the first hominids emerged.</li>
+
+            <li class="slideInList">Slide 19: CULTURE AND SOCIETY DEVELOP</li>
+            <li><span class="italics">Cuneiform script</span>, Wikipedia. Retrieved 29<sup>th</sup> March 2017 from <a href="https://en.wikipedia.org/wiki/Cuneiform_script">https://en.wikipedia.org/wiki/Cuneiform_script</a>. Purpose: to source necessary information on Cuneiform writing.</li>
+            <li>Puhvel, J. (2011, July 13). <span class="italics">Cuneiform</span>, Encyclopædia Britannica. Retrieved 29<sup>th</sup> March 2017 from <a href="https://www.britannica.com/topic/cuneiform">https://www.britannica.com/topic/cuneiform</a>. Purpose: to source any further information on Cuneiform writing.</li>
+            <li>The Editors of Encyclopædia Britannica (2012, November 05)<span class="italics">TCP/IP</span>, Encyclopædia Britannica. Retrieved 29<sup>th</sup> March 2017 from <a href="https://www.britannica.com/technology/TCP-IP">https://www.britannica.com/technology/TCP-IP</a>. Purpose: to source necessary information on TCP/IP.</li>
+            <li>Featherly, K. (2016, November 28). <span class="italics">ARPANET</span>, Encyclopædia Britannica. Retrieved 29<sup>th</sup> March 2017 from <a href="https://www.britannica.com/topic/ARPANET">https://www.britannica.com/topic/ARPANET</a>. Purpose: to source necessary information on ARPANET.</li>
+            <li>The Editors of Encyclopædia Britannica. (1998, July 20). <span class="italics">World Wide Web</span>, Encyclopædia Britannica. Retrieved 29<sup>th</sup> March 2017 from <a href="https://www.britannica.com/topic/World-Wide-Web">https://www.britannica.com/topic/World-Wide-Web</a>. Purpose: to source information on the World Wide Web.</li>
+
+            </ul>
+        
+        </div>
+
+
+        <div class="slide" id="slide1">
+
+            <h1>A brief overview</h1>
+
+            <ul>
+
+                <li>The Earth went under many geological stages to be able to support life (favourably). Geological time periods, in order of greatest to smallest size, are: (supereon), eon, era, period, epoch, and age (and then chron).</li>
+                <li class="slideInList">Hadean Eon</li>
+                <li>In the first eon, the Hadean eon, the Earth and Moon formed (the Moon probably formed from another large body, "Theia" colliding with Earth, throwing up material which accreted to form the Moon).</li>
+                <li>In the Hadean eon, there were such huge surface temperatures that rock was rarely not molten; this, the partially formed atmosphere, with little oxygen, and frequent asteroid impacts, meant life could seldom exist, if at all (some think it did).</li>
+                <li>The Hadean eon lasted from the creation of Earth, ~4.5Ga, to ~4Ga (when the oldest rocks found were formed).</li>
+                <li class="slideInList">Archean Eon</li>
+                <li>Through the Hadean Eon, the Earth slowly cooled, allowing the oldest rocks (and parts of continents) to form; this defines the start of the Archean Eon.</li>
+                <li>By the end of this eon, life had definitely arisen; it is very likely that life began in this eon.</li>
+                <li>Although life existed, it was relatively primitive - primarily photosynthesising cyanobacteria - especially at first.</li>
+                <li>Conditions were, however, still unfavourable for life; the same aforementioned factors in the Hadean Eon were still present, but to a lesser extent.</li>
+                <li>The Archaean eon lasted from 4Ga-2.5Ga.</li>
+                <li class="slideInList">Proterozoic Eon</li>
+                <li>In the Proterozoic Eon, the air in the atmosphere became oxgenised and there were several ice ages.</li>
+                <li>In this time period, we also begin to see advanced single-celled eukaryotes and some multi-ceullular organisms.</li>
+                <li>Aerobic photosynthesis (producing O<sub>2</sub>) was probably first developed during this eon (if not beforehand), though exactly when is debated.</li>
+                <li>Furthermore, "the Great Oxidation Event" occured ~ 2.4Ga. This is seen as likely being due to the development of aerobic photosynthesis beforehand.</li>
+                <li>The Proterozoic Eon lasted from ~2.5Ga-541Ma.</li>
+                <li class="slideInList">Phanerozoic Eon</li>
+                <li>The Phanerozoic Eon represents the time period from 541Ma to the present.</li>
+                <li>Its beginning is defined by the start of the Cambrian period, in the Cambrian explosion, followed by the Great Ordovician Biodiversification Event.</li>
+                <li>This involves the now common appearance of large, multicellular organisms and their subsequent genetic divergence and further development.</li>
+                <li>This eon involved the evolution of fish to become land-dwelling animals, the rise and the fall of the dinosaurs, and of course the rise of humanity.</li>
+
+            </ul><br/><br/>
+
+            I will now examine the biological and physical processes by which life has been enabled to exist, and then the way in which it has developed into its current state.
+
+        </div>
+    
+    
+        <div class="slide" id="slide2">
+        
+        <h1>The creation of the universe</h1>
+            
+            <ul>
+
+            <li>The scientific consensus today is that the Universe was created ~13.8Ga in a "Big Bang".</li>
+            <li>This value is worked out from the value of Hubble's constant, <span class="italic">H<sub>0</sub></span>.</li>
+            <li>Most scientists today place <span class="italic">H<sub>0</sub></span> as ~72 kms<sup>-1</sup>Mpc<sup>-1</sup> or ~2.34 x 10<sup>-18</sup>s<sup>-1</sup>.</li>
+            <li>It should be noted, however, that the value has taken many revisions over time, and is still contested today. It is, furthermore, still subject to a high degree of uncertainty.</li>
+            <li>Since s = d ÷ t, and v = H<sub>0</sub> d, d ÷ t = H<sub>0</sub> d<br/>
+                ∴ solving for the time since the universe began, T<sub>0</sub>:<br/>
+                T<sub>0</sub> = 1 ÷ H<sub>0</sub><br/>
+                ∴ T<sub>0</sub> ≈ 1 ÷ 2.34 x 10<sup>-18</sup> ≈ 4.2857 x 10<sup>17</sup>s<br/>
+                = 4.2857 x 10<sup>17</sup> ÷ (365 x 24 x 60 x 60) = 1.4012 x 10<sup>10</sup> years = 14.012Ga (≈ 13.8Ga)<br/><br/>
+                Note: the inaccuracies in this calculation are likely due to the value for H<sub>0</sub> only having 3 significant figures.<br/>
+                It should also be mentioned, however, that "more accurate" calculations would also be subject to the volatile nature of H<sub>0</sub> and its high percentage uncertainty.</li>
+            <li>It is also a consensus view that the universe was created in a rapid expansion (no not an explosion) called the "Big Bang" - hence the name "Big Bang Theory".</li>
+            <li>The Big Bang Theory also had great influence on the models cosmologists use to describe today's universe; it explained the existence of CMB, and Hubble's law, showing that the Universe appears to be expanding (in turn causing us to postulate the existence of "dark matter"), for instance.</li>
+            <li>Due to the subsequent acceptance of Hubble's law, Einstein's cosmological constant in General Relativity (which he used to "fix" the theory - preventing it predicting the universe to be expanding) was redacted (until we started using it to explain the universe's acceleration!).</li>
+            <li>Later, Einstein was to call the somewhat clumsy inclusion of the cosmological constant in the otherwise sleek Theory of General Relativity as his "biggest blunder".</li>
+
+            </ul>
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/wNDGgL73ihY?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+        
+        </div>
+    
+    
+        <div class="slide" id="slide3">
+        
+        <h1>Earth is born</h1>
+            
+            <ul>
+            <li>The solar system most likely began as a nebula - an approximately uniform cloud of matter, gas and dust, perhaps left over from a supernova.</li>
+            <li>This mass, called the "solar nebula", collapsed under the influence of gravity to form a protosun in a rotating disc of matter.</li>
+            <li>This gas gained internal kinetic energy, until the resulting temperature (and therefore pressure) was great enough to allow nuclear reactions.</li>
+            <li>This formed the Sun as a true star, which contained 99.8% of the total mass of the original nebula (or part of it which formed the solar system).</li>
+            <li>The outward pressure or force generated by these reactions balanced the gravity acting on the Sun's mass, causing it to gain an equilibrium.</li>
+            <li>The remainder of the nebula which formed the solar system then became an accretion disc which rotated around the Sun.</li>
+            <li>All physical objects in the solar system formed from this disc; the force of gravity acted upon the matter in the disc, bringing them together into discrete objects.</li>
+            <li>Some of these objects were planetesimals (then becoming protoplanets), which go on to form planets. Other objects formed include sattelites (moons), comets, and asteroids.</li>
+            <li>All of these solar objects are thought to form within 50-100 million years of each other, at ~4.5Ga.</li>
+            <li>As such, the age of the Earth is approximately the same: ~4.5Ga.</li>
+            <li>This age has been found using radioactive (often isochron) dating on Earth and Moon rocks, and meteorites (which also have small grains suggesting they came together under gravity).</li>
+            </ul>
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/p86BPM1GV8M?rel=0&amp;showinfo=0" allowfullscreen></iframe>
+        
+        </div>
+    
+    
+        <div class="slide" id="slide4">
+        
+        <h1>First life on Earth</h1>
+            
+            <ul>
+                <li>Life is thought to have been created by ~3.8Ga, and definitely by ~3.5Ga.</li>
+                <li>People speculate as to the initial form of life, and how it formed; ideas include the RNA, PAH, and Iron-Sulphur "worlds", and the "primordial soup".</li>
+                <li>The oldest known microfossils found are ~3.5Ga, and their high complexity implies there was earlier life for some time (to develop this complexity).</li>
+                <li>It has been debated whether or not some structures dating from even before this time are microfossils - this remains a possibility.</li>
+                <li>Some microfossils are not easily distinguished from artefacts formed abiotically, however; this has led to some controversy and debate in classifying microfossils in the past.</li>
+
+            </ul>
+        
+        </div>
+    
+    
+        <div class="slide" id="slide5">
+        
+        <h1>Aerobic photosynthesis leads to the GOE</h1>
+            
+            <ul>
+                <li>Aerobic (aka oxygenic) photosynthesis developed at least ~2.5Ga (estimates vary, but generally agree it was before the GOE). This meant O<sub>2</sub> began to be produced en masse, filling the atmosphere.</li>
+                <li>The O<sub>2</sub> released by oxygenic photosynthesis (which probably initially occured in cyanobacteria) rapidly increased the percentage of the atmosphere composed of O<sub>2</sub>, leading to the GOE.</li>
+                <li>The GOE (Great Oxidation Event) was an extremely rapid increase in oxygen in the atmosphere (at least x1000) that occured ~2.4Ga.</li>
+                <li>It has been considered possible that this rapid increase in the concentration of oxygen in the atmosphere, and subsequent fall in the concentrations of greenhouse gases, led to the first "Snowball Earth".</li>
+                <li>The First "Snowball Earth", aka the Huronian Glaciation, when the Earth was thought to be completely covered in ice ("glaciated"), occurred ~2.3Ga.</li>
+                <li>The oxidation of the Earth in the GOE due to the development arguably enabled later diversitifation of organisms.</li>
+            </ul>
+        
+        </div>
+    
+    
+        <div class="slide" id="slide6">
+        
+        <h1>Eukaryotes develop</h1>
+            
+            <ul>
+            <li>The fossil record of Eukaryotes dates back to at least ~2Ga, though it is probable for there to be a fossil record that by this time euakaryotes were abundant: they probably date further back (the exact time is still debated; estimates vary).</li>
+            <li>The later divergence of the eukaryotic groups plants, animals, and fungi has been estimated to have occured at ~1.6Ga.</li>
+
+            </ul>
+        
+        </div>
+
+
+        <div class="slide" id="slide7">
+
+            <h1>First multicellular (animal) life</h1>
+
+            <ul>
+                <li>Multicellular organisms are thought to have developed multiple times and independently in various phlogenetic groups; the first multicellular animals are thought to have emerged between 700 and 1000 Ma.</li>
+                <li>The 3 split taxons from eukaryotes (plants, animals, fungi) are thought to have evolved seperately after diverging (see last slide), including in the development of multicellular organisms.</li>
+
+            </ul>
+
+        </div>
+    
+    
+        <div class="slide" id="slide8">
+        
+        <h1>Second Snowball Earth</h1>
+            
+            <ul>
+                <li>The Second "Snowball Earth" took place ~ 700Ma.</li>
+                <li>This was known as the Sturtian glaciation, and most likely caused some species to become extinct, in doing so affecting the course of evolution.</li>
+
+            </ul>
+        
+        </div>
+    
+    
+        <div class="slide" id="slide9">
+        
+        <h1>The first chordates and vertebrates</h1>
+            
+            <ul>
+            <li>Chordates are a phylum which went on diverge partially into vertebrates, which include the most highly involved animal species. The first conclusive chordate fossils recorded are from ~525Ma, though they are thought to have possibly emerged before 540Ma.</li>
+            <li>Vertebrates are a pholognetic group of animals under chordates which have backbones. They emerged around the same period as the larger chordate group, during the Cambrian explosion.</li>
+            <li>Due to the remaining debate over a relatively scant fossil record at the time, the origins of vertebrates are usually said to be very roughly in line with chordates, though obviously after chordates first developed: ~525Ma.</li>
+            </ul>
+        
+        </div>
+
+
+        <div class="slide" id="slide10">
+
+            <h1>The Cambrian explosion and GOBE</h1>
+
+            <ul>
+            <li>The Cambrian explosion was a period during which an extremely large number of phyla and species of organisms emerged at the beginning of the Cambrian Period(541-485Ma). It lasted from 541-530Ma.</li>
+            <li>The Great Ordovician Biodiversification Event (GOBE) is the label given to the plethora of new species and adaptations made during the Early and Late Ordovician Period (489–443Ma), in between 485 and 460Ma.</li>
+            <li>The GOBE involved animals species adapting to live on land rather than at sea for the first time - an extremely important phase of evolution. The next slide will discuss this in more detail.</li>
+            </ul>
+
+        </div>
+
+
+        <div class="slide" id="slide11">
+
+            <h1>1st plants and animals on land</h1>
+
+            <ul>
+            <li>The first animals to walk on land were arthropods: the ancestors of millipedes, centipedes, and some arachnids and insects. Colonisation of fully terrestrial arthropods began by ~430Ma, and evidence appears to show they walked on land by 530Ma.</li>
+            <li>It is likely, however, that plants were first on land - and therefore had colonised it - before animals were present there. The oldest land plant fossils found so far are around 472Ma; since plants can't move, colonisation must have also occurred by then.</li>
+            <li>The first ancestors of humans to colonise land were tetrapods, an intermediate between fish and terrestrial animals. Their fossil record dates back to 400-380Ma, and they are thought to have fully colonised land from some point since 359Ma.</li>
+            </ul>
+
+        </div>
+
+
+        <div class="slide" id="slide12">
+
+            <h1>Permian–Triassic extinction</h1>
+
+            <ul>
+            <li>The P/T extinction was an extinction event (when multiple species become extinct simultaneously, usually due to one or more common causes).</li>
+            <li>It is thought that the P/T extinction may have been caused by changes in the Carbon cycle and temperature.</li>
+            <li>Over 95% of marine species were eliminated in this extinction, as well as 70% of terrestrial species.</li>
+            <li>This extinction occured towards the end of the Permian period, ending at 251Ma. The length of the extinction is argued, on the scale of tens of thousands of years to a double digit number of million years.</li>
+            </ul>
+
+        </div>
+
+
+        <div class="slide" id="slide13">
+
+            <h1>Triassic-Jurassic extinction</h1>
+
+            <ul>
+            <li>Similarly to the P/T extinction, the T/J extinction took place at the end of the Triassic period, from 201.5Ma-201.3Ma, before the start of the Jurassic period.</li>
+            <li>This was less destructive than the P/T extinction, yet 76% of species and 20% of all families became extinct.</li>
+            <li>The T/J extinction event did, however, enable the rise of dinosaurs; after the event, dinosaurs dominated in place of sauropsids.</li>
+            <li>The T/J extinction event was possibly caused by increased volcanic activity and climate change and rising sea levels resulting from increased CO<sub>2</sub> in the atmosphere (<a href="https://climate.nasa.gov/">And it's happening again!!</a>).</li>
+            </ul>
+
+        </div>
+
+
+        <div class="slide" id="slide14">
+
+            <h1>Montromemes, birds, and placental mammals</h1>
+
+            <ul>
+            <li>Montromemes (mammals which lay eggs) diverged from mammals ~175Ma. Other mammals then diverged into marsupials and placental mammals ~155Ma.</li>
+            <li>The oldest known birds were fossils of Archaeopteryx from approximately 150Ma. Birds as a whole probably originated around this time.</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="slide" id="slide15">
+
+            <h1>Cretaceous-Paleogene (K/Pg) extinction</h1>
+
+            <ul>
+            <li>The K/Pg extinction was the mass extinction event which wiped out ~75% of the plant and animal species on Earth ~66Ma.</li>
+            <li>This involved the extinction of nearly all of the dinosaurs - leading to the beginning of mammals' dominance of Earth.</li>
+            <li>It's thought that the cause of this extinction event was a result of one or more meteorite or asteroid impacts.</li>
+            </ul>
+
+        </div>
+
+
+        <div class="slide" id="slide16">
+
+            <h1>Mammals develop into primates</h1>
+
+            <ul>
+                <li>Mammals initially developed into euarchontoglires, which are a common ancestor to primates, rodents, and lagomorphs, ~65Ma.</li>
+                <li>The euarchontoglires then diverged into primates from ~55Ma.</li>
+            </ul>
+
+        </div>
+
+
+        <div class="slide" id="slide17">
+
+            <h1>Palaeocene/Eocene extinction</h1>
+
+            <ul>
+            <li>The P/E extinction event was a rapid heating of the Earth due to rising levels of greenhouse gases ~55Ma.</li>
+            <li>This event caused some species in deep sea environments to become extinct, but had relatively little effect on species living in shallow water and land habitats.</li>
+            <li>Specifically, the rise in temperature is thought to be due to the oxidation and subsequent release of trapped carbon (as CO<sub>2</sub>).</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="slide" id="slide18">
+
+            <h1>Development of humans</h1>
+
+            <ul>
+            <li>The evolution towards humans continued with the development of the first primates, shown in the fossilised record up to ~55Ma.</li>
+            <li>It has, however, been difficult to accurately find sufficient fossils of, and map the evolutionary relationships between, the early hominid (and hominin) species to be able to say what the first hominid species was, and when it arose, with a reasonable level of certainty.</li>
+            <li>Homo sapiens (anatomically modern humans), however, were first seen in fossil record ~200Ka in the Omo remains.</li>
+            <li>The "Out of Africa Theory" supposes humans migrated out of Africa (en masse) twice, and most recently ~50ka, leading to global human colonisation.</li>
+            <li>The Neolithic Revolution, starting from ~8000BCE, began the transition from hunting-gathering into agricultural towns.</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="slide" id="slide19">
+
+            <h1>Culture and society develop</h1>
+            
+            <ul>
+
+            <li>Cuneiform was the first written language, emerging at some point between 3500 and 3000BCE.</li>
+            <li>At the same time, the first civilizations appear in Iraq, Egypt, India, and China from 3500BCE onwards.</li>
+            <li>Various empires and civilisations rise and fall. Power moves from the East into Europe over time.</li>
+            <li>We move from the Antiquity and Middle Ages into the Early Modern Period, leading to the Industrial Revolution.</li>
+            <li>We focus on developing technology and enriching quality of life, all the while fighting 2 world wars and a cold war. New politics rise and fall.</li>
+            <li>DARPA develops TCP/IP, and then the ARPANET, which became the Internet. The additional applications needed for the World Wide Web (HTTP and HTML) were created by a team led by Sir Tim Berners-Lee from 1989.</li>
+            <li>This led to the so-called "Internet Age" we are in today, possibly (but probably not) qualifying us as the or some of the most technologically advanced life ever (the universe is a big place!).</li>
+            
+            </ul>
+        
+        </div>
+    
+    
+        <div class="slide" id="slide20">
+        
+        <h1>That's it folks!</h1>
+            
+            <p>
+                I hope you enjoyed my timeline. Please either <a href="javascript:showInfo()">restart it</a> or <a href="javascript:self.close()">close the window</a>.<br/><br/>
+                <img src="http://media.riffsy.com/images/a887b8da34bce6e0a9c37d8bfc1489c0/tenor.gif" />
+            
+            </p>
+        
+        </div>
+
+
+        <progress id="slideNo" value="0" max="13800000000"></progress>
+        <span id="slideNoLabel"></span>
+    
+    </div>
+        
+        <img src="backButton.png" id="backButton" onclick="goBack();backMouseOver()" onmouseover="backMouseOver()" onmouseout="backMouseOut()" alt="Back" />
+        <img src="forwardButton.png" id="forwardButton" onclick="goForward();forwardMouseOver()" onmouseover="forwardMouseOver()" onmouseout="forwardMouseOut()" alt="Forward" />
+
+        <img src="plus.png" id="addWrapperBackground" onclick="addContentWrapperBackground()" onmouseover="addWrapperBackgroundMouseOver()" onmouseout="addWrapperBackgroundMouseOut()" alt="+" />
+        <img src="minus.png" id="removeWrapperBackground" onclick="removeContentWrapperBackground()" onmouseover="removeWrapperBackgroundMouseOver()" onmouseout="removeWrapperBackgroundMouseOut()" alt="-" />
+    
+</body>
+</html>
